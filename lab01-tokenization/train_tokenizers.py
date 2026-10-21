@@ -12,8 +12,8 @@ def train_sentencepiece(args):
     print(f"Saved SentencePiece BPE tokenizer to: {args.models_dir}/sp_bpe.model")
 
 def train_whitespace(args):
-    tokenizer = WhiteSpaceTokenizer(args.vocab_size)
-    tokenizer.train(args.corpus)
+    tokenizer = WhiteSpaceTokenizer()
+    tokenizer.train(args.corpus, args.vocab_size)
     tokenizer.save(f"{args.models_dir}/ws.model")
 
     print(f"Saved WhiteSpace tokenizer to: {args.models_dir}/ws.model")
