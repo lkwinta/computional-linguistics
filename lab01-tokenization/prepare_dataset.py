@@ -6,6 +6,7 @@ from pathlib import Path
 
 from speakleash import Speakleash
 
+BASE_DIR = Path(__file__).resolve().parent
 DATASET_NAME = "wolne_lektury_corpus"
 
 SPLIT_FILES = {
@@ -116,12 +117,12 @@ def main() -> None:
                 f"--{name.replace('_', '-')} must be greater than 0"
             )
 
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-    args.cache_dir.mkdir(parents=True, exist_ok=True)
+    (BASE_DIR / args.output_dir).mkdir(parents=True, exist_ok=True)
+    (BASE_DIR / args.cache_dir).mkdir(parents=True, exist_ok=True)
 
     print(f"Loading SpeakLeash dataset: {args.dataset_name}")
 
-    sl = Speakleash(str(args.cache_dir))
+    sl = Speakleash(str(BASE_DIR / args.cache_dir))
     dataset = sl.get(args.dataset_name)
 
     if dataset is None:
@@ -135,14 +136,14 @@ def main() -> None:
 
     stats = export_corpus(
         dataset.data,
-        args.output_dir,
+        BASE_DIR / args.output_dir,
         args.seed,
         limits,
     )
 
     for split, filename in SPLIT_FILES.items():
         rows, size = stats[split]
-        path = args.output_dir / filename
+        path = BASE_DIR / args.output_dir / filename
 
         print(
             f"{path}: {rows:,} documents, "

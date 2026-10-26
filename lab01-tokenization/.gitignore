@@ -2,3 +2,5 @@ corpus*
 *.model
 models/
 datasets
+encoded_dataset
+checkpoints/
