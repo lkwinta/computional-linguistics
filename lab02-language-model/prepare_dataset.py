@@ -7,14 +7,13 @@ from pathlib import Path
 from speakleash import Speakleash
 
 BASE_DIR = Path(__file__).resolve().parent
-DATASET_NAME = "wolne_lektury_corpus"
+DATASET_NAME = "forum_vw-passat_pl_corpus"
 
 SPLIT_FILES = {
     "train": "train.txt",
     "validation": "val.txt",
     "test": "test.txt",
 }
-
 
 def mib_to_bytes(value: float | None) -> int | None:
     return None if value is None else int(value * 1024 * 1024)
