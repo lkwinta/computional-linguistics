@@ -2,7 +2,7 @@ import argparse
 import os
 from pathlib import Path
 
-from tokenizers.sentencepiece import SentencePieceBPETokenizer
+from custom_tokenizers.sentencepiece import SentencePieceBPETokenizer
 
 BASE_DIR = Path(__file__).resolve().parent
 

@@ -7,7 +7,7 @@ from pathlib import Path
 from speakleash import Speakleash
 
 BASE_DIR = Path(__file__).resolve().parent
-DATASET_NAME = "forum_vw-passat_pl_corpus"
+DATASET_NAME = "wolne_lektury_corpus"
 
 SPLIT_FILES = {
     "train": "train.txt",

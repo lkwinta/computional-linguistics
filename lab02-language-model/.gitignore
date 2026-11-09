@@ -2,3 +2,5 @@ datasets
 corpus
 .model
 output
+encoded_dataset
+checkpoints
